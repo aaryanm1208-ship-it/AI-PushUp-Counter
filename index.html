@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Push-Up Counter & Posture Analyzer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- MediaPipe Pose CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <h1>AI Push-Up Counter</h1>
+
+    <div class="video-section">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="stats">
+        <div class="card">
+            <h2>Push-Ups</h2>
+            <p id="pushupCount">0</p>
+        </div>
+        <div class="card">
+            <h2>Phase</h2>
+            <p id="phase">--</p>
+        </div>
+        <div class="card">
+            <h2>Posture</h2>
+            <p id="posture" class="status">--</p>
+        </div>
+        <div class="card">
+            <h2>Accuracy</h2>
+            <p id="accuracy">0%</p>
+        </div>
+        <div class="card">
+            <h2>Time</h2>
+            <p id="timer">00:00</p>
+        </div>
+    </div>
+
+    <div class="warnings" id="warnings"></div>
+
+    <div class="controls">
+        <button id="startBtn">Start Camera</button>
+        <button id="stopBtn">Stop Camera</button>
+        <button id="resetBtn">Reset</button>
+    </div>
+
+    <div class="angles">
+        <p>Left Elbow: <span id="leftAngle">--</span>°</p>
+        <p>Right Elbow: <span id="rightAngle">--</span>°</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
